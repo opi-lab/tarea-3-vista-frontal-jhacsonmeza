@@ -66,7 +66,9 @@ def H_from_points(x1, x2):
       return H / H[2,2]
 
       
-im1 = np.array(Image.open(os.path.abspath('data/book_frontal.jpg')).\
+#im1 = np.array(Image.open(os.path.abspath('data/book_frontal.jpg')).\
+#               convert('L'))
+im1 = np.array(Image.open(os.path.abspath('data/book_perspective.jpg')).\
                convert('L'))
 
 plt.figure('Imagen 1')
@@ -74,7 +76,7 @@ plt.axis('off'), plt.imshow(im1,cmap='gray')
 x1 = np.array(plt.ginput(4,mouse_add=3,mouse_pop=1,mouse_stop=2)).T
 plt.close()
 
-h, w = 500, 600
+h, w = 400, 400
 x2 = np.array([[0,h,0,h],[0,0,w,w]])
 
 
