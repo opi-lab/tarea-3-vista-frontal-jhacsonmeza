@@ -68,31 +68,26 @@ def H_from_points(x1, x2):
       
 im1 = np.array(Image.open(os.path.abspath('data/book_frontal.jpg')).\
                convert('L'))
-im2 = np.array(Image.open(os.path.abspath('data/book_perspective.jpg')).\
-               convert('L'))
 
 plt.figure('Imagen 1')
 plt.axis('off'), plt.imshow(im1,cmap='gray')
 x1 = np.array(plt.ginput(4,mouse_add=3,mouse_pop=1,mouse_stop=2)).T
 plt.close()
 
-plt.figure('Imagen 2')
-plt.axis('off'), plt.imshow(im2,cmap='gray')
-x2 = np.array(plt.ginput(4,mouse_add=3,mouse_pop=1,mouse_stop=2)).T
-plt.close()
+h, w = 500, 600
+x2 = np.array([[0,h,0,h],[0,0,w,w]])
 
 
 plt.figure()
-plt.imshow(np.hstack([im1,im2]),cmap='gray')
+plt.imshow(im1,cmap='gray')
 plt.plot(x1[0],x1[1],'r.',markersize=6)
-plt.plot(x2[0]+im1.shape[1],x2[1],'r.',markersize=6)
 plt.axis('off'), plt.show()
 
 
 xh1 = make_homog(x1)
 xh2 = make_homog(x2)
 H = H_from_points(xh2, xh1)
-im_out = Htransform(im1, H, im1.shape[:2])
+im_out = Htransform(im1, H, (h,w))
 
 plt.figure()
 plt.imshow(im_out,cmap='gray')
