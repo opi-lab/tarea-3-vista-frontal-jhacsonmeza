@@ -66,8 +66,10 @@ def H_from_points(x1, x2):
       return H / H[2,2]
 
       
-im2 = np.array(Image.open(os.path.abspath('data/book_frontal.jpg')).convert('L'))
-im1 = np.array(Image.open(os.path.abspath('data/book_perspective.jpg')).convert('L'))
+im1 = np.array(Image.open(os.path.abspath('data/book_frontal.jpg')).\
+               convert('L'))
+im2 = np.array(Image.open(os.path.abspath('data/book_perspective.jpg')).\
+               convert('L'))
 
 plt.figure('Imagen 1')
 plt.axis('off'), plt.imshow(im1,cmap='gray')
@@ -89,8 +91,8 @@ plt.axis('off'), plt.show()
 
 xh1 = make_homog(x1)
 xh2 = make_homog(x2)
-H = H_from_points(xh1, xh2)
-im_out = Htransform(im2, H, im1.shape[:2])
+H = H_from_points(xh2, xh1)
+im_out = Htransform(im1, H, im1.shape[:2])
 
 plt.figure()
 plt.imshow(im_out,cmap='gray')
