@@ -80,17 +80,13 @@ h, w = 400, 400
 x2 = np.array([[0,h,0,h],[0,0,w,w]])
 
 
-plt.figure()
-plt.imshow(im1,cmap='gray')
-plt.plot(x1[0],x1[1],'r.',markersize=6)
-plt.axis('off'), plt.show()
-
-
 xh1 = make_homog(x1)
 xh2 = make_homog(x2)
 H = H_from_points(xh2, xh1)
 im_out = Htransform(im1, H, (h,w))
 
 plt.figure()
-plt.imshow(im_out,cmap='gray')
-plt.axis('off'), plt.show()
+plt.subplot(121), plt.imshow(im1,cmap='gray'), plt.axis('off')
+plt.plot(x1[0],x1[1],'r.',markersize=6)
+plt.subplot(122), plt.imshow(im_out,cmap='gray'), plt.axis('off')
+plt.show()
