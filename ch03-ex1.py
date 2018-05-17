@@ -51,8 +51,8 @@ def H_from_points(x1, x2):
       zero = np.array([0,0,0])
       for i in range(n):            
             x = x1[:,i]
-            A[3*i] = np.hstack([zero, -x2[2,i]*x, x2[1,i]*x])
-            A[3*i+1] = np.hstack([x2[2,i]*x, zero, -x2[0,i]*x])
+            A[3*i] = np.hstack([zero, -x, x2[1,i]*x])
+            A[3*i+1] = np.hstack([x, zero, -x2[0,i]*x])
             A[3*i+2] = np.hstack([-x2[1,i]*x, x2[0,i]*x, zero])
             
       *_,Vh = np.linalg.svd(A)
