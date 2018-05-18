@@ -67,14 +67,14 @@ plt.axis('off'), plt.imshow(im1,cmap='gray')
 x1 = np.array(plt.ginput(4,mouse_add=3,mouse_pop=1,mouse_stop=2)).T
 plt.close()
 
-h, w = 300, 400
-x2 = np.array([[0,h,0,h],[0,0,w,w]])
+h, w = 400, 300
+x2 = np.array([[0,w,0,w],[0,0,h,h]])
 
 
 xh1 = make_homog(x1)
 xh2 = make_homog(x2)
 H = H_from_points(xh2, xh1)
-im_out = Htransform(im1, H, (w,h))
+im_out = Htransform(im1, H, (h,w))
 
 plt.figure()
 plt.subplot(121), plt.imshow(im1,cmap='gray'), plt.axis('off')
