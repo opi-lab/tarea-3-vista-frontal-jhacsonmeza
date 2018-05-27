@@ -1,6 +1,7 @@
 from matplotlib import pyplot as plt
 from PIL import Image
 import numpy as np
+import argparse
 import os
 
 
@@ -56,10 +57,15 @@ def H_from_points(x1, x2):
       # normalize and return
       return H / H[2,2]
 
-      
-#im1 = np.array(Image.open(os.path.abspath('data/book_frontal.jpg')).\
-#               convert('L'))
-im1 = np.array(Image.open(os.path.abspath('data/book_perspective.jpg')).\
+
+parser = argparse.ArgumentParser(description='Image for process.')
+parser.add_argument('path', metavar='im', type=str,
+                    help='Path to image to use in the adjust process')
+args = parser.parse_args()
+
+
+
+im1 = np.array(Image.open(os.path.abspath(args.path)).\
                convert('L'))
 
 plt.figure('Imagen 1')
