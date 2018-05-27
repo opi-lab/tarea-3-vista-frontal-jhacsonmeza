@@ -1,18 +1,12 @@
 # Image to Image Mappings
 
-Esta tercera tarea tiene que ver con la estimación de mapeos o transformaciones geométricas entre imágenes. Estas pueden ser utilizadas para registrar (alinear) imágenes, para construir mosáicos, para calibrar sistemas de visión, etc.
 
-Deberán modificar este archivo ``README.md`` en dónde describan la documentación del código que están adjuntando. En particular deben cumplir con lo siguiente:
+This repository is based on the first proposed exercise of chapter 3 of the book *Programming Computer Vision with Python* by Jan Erik Solem. In this exercise the idea is to take the image coordinates of a square (or rectangular) object for estimate the transformation that takes the rectangle to a full on frontal view.
 
-1. Deben resolver el ejercicio 1 del final del capítulo. Debe llevar el nombre ``ch03-ex1.py``. En este repositorio tienen el código de inicializacin. La manera de ejecutar el programa debe ser desde la linea de comandos ``ch03-ex1.py data/image.jpg``.
-ch2. Bonificación por cualquier ejercicio o programa adicional.
+## Files
 
-Ejemplo de la estructura del repositorio a subir
+* ``data`` has 4 test images, two from a book and two from a card.
 
-	tarea3-vista-frontal-JuanPerez/
-	.
-	├── README.md
-	├── ch03-ex1.py
-	├── data
-	│   ├── image.jpg
-  
+* ``ch03-ex1.py`` has the source code. To run it you need write in the command line: ``python ch03-ex1.py data/image.jpg``, change ``image`` by any image name of the ones in the ``data`` folder. Once you run the above command you need to select with right click the 4 corners of book or card. Keep in mind that the algorithm designed by default put the output image in a vertical orientation.
+
+* ``ch03-ex1-nb.ipynb`` has the documentation of code that be in ``ch03-ex1.py`` where mainly the function that calculates the homography is explained.
